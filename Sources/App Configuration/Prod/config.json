@@ -1,0 +1,23 @@
+{
+    "backbase": {
+        "serverURL": "https://digitalservices.westerracu.com",
+        "version": "6.1.5",
+        "identity": {
+           "baseURL": "https://auth.prd.bbwcu.westerracu.com",
+           "realm": "backbase",
+           "clientId": "mobile-client",
+           "applicationKey": "retail"
+        }
+    },
+    "custom": {
+        "dmiMortgageDomain": "https://mtgsvc.com",
+        "payverisDomain": "https://billpay.payverisbp.com",
+        "wafURL": "https://444f4282d156.us-east-2.sdk.awswaf.com/444f4282d156/c29ecc84f660"
+    },
+    "security": {
+        "allowedDomains": ["*"]
+    },
+    "development": {
+        "debugEnable": true
+    }
+}

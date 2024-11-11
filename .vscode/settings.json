@@ -1,0 +1,6 @@
+{
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": true,
+    "redhat.telemetry.enabled": true,
+    "files.autoSave": "onFocusChange"
+}

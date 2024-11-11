@@ -1,0 +1,62 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name WafMobileSdk
+import AdSupport
+import AppTrackingTransparency
+import Argon2Swift
+import CommonCrypto
+import CoreTelephony
+import Foundation
+import MessageUI
+import Swift
+import SwiftUI
+@_exported import WafMobileSdk
+import WebKit
+import _Concurrency
+import _StoreKit_SwiftUI
+import os.log
+import os
+extension Swift.String {
+  public func sha256() -> Swift.String!
+  public func sha256Data() -> Foundation.Data!
+}
+extension Foundation.Data {
+  public func sha256() -> Swift.String
+  public func sha256Data() -> Foundation.Data
+}
+@_hasMissingDesignatedInitializers public class Challenge {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class WAFConfiguration {
+  public static let maxTokenRefreshDelaySec: Swift.Int
+  public static let minTokenRefreshDelaySec: Swift.Int
+  public static let defaultMaxErrorTokenRefreshDelayMsec: Swift.Int
+  public static let defaultMaxRetryCountForRequestedToken: Swift.Int
+  public static let defaultMaxExponentialRetryCountForBackgroundRefresh: Swift.Int
+  public static let absoluteMaxErrorTokenRefreshDelayMsec: Swift.Int
+  public static let absoluteMaxRetryCount: Swift.Int
+  convenience public init?(applicationIntegrationUrl: Foundation.URL, domainName: Swift.String)
+  convenience public init?(applicationIntegrationUrl: Foundation.URL, domainName: Swift.String, backgroundRefreshEnabled: Swift.Bool, maxExponentialRetryCount: Swift.Int? = nil, maxErrorTokenRefreshDelayMsec: Swift.Int = WAFConfiguration.defaultMaxErrorTokenRefreshDelayMsec, setTokenCookie: Swift.Bool = true, tokenCookiePath: Swift.String = "/")
+  convenience public init?(applicationIntegrationUrl: Foundation.URL, domainName: Swift.String, tokenRefreshDelaySec: Swift.Int = WAFConfiguration.minTokenRefreshDelaySec, maxExponentialRetryCount: Swift.Int = WAFConfiguration.defaultMaxExponentialRetryCountForBackgroundRefresh, maxErrorTokenRefreshDelayMsec: Swift.Int = WAFConfiguration.defaultMaxErrorTokenRefreshDelayMsec, setTokenCookie: Swift.Bool = true, tokenCookiePath: Swift.String = "/")
+  @objc deinit
+}
+public class WAFTokenProvider {
+  final public let configuration: WafMobileSdk.WAFConfiguration
+  public init(_ configuration: WafMobileSdk.WAFConfiguration)
+  public func onTokenReady(wafTokenResultCallback tokenCallback: @escaping (WafMobileSdk.WAFToken?, WafMobileSdk.SdkError?) -> ())
+  public func getToken() -> WafMobileSdk.WAFToken?
+  @objc deinit
+}
+public struct WAFToken {
+  public let value: Swift.String
+}
+public enum SdkError : Swift.Error {
+  case internalError
+  public static func == (a: WafMobileSdk.SdkError, b: WafMobileSdk.SdkError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WafMobileSdk.SdkError : Swift.Equatable {}
+extension WafMobileSdk.SdkError : Swift.Hashable {}

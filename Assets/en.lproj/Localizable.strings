@@ -1,0 +1,400 @@
+
+
+// MARK: AUTHENTICATION
+"authentication.alerts.invalidCredentials.title" = "Incorrect username or password";
+"authentication.alerts.invalidCredentials.message" = "Too many invalid attempts will lock your account.";
+"authentication.alerts.accountLocked.title" = "Account Locked";
+"authentication.alerts.accountLocked.message" = "You have been temporarily locked out of digital banking. Please call 303-321-4209 for assistance.";
+
+"authentication.forgotUsername.labels.email.subtitle" = "Please enter your email address to receive instructions.";
+"authentication.forgotUsername.inputs.email.placeholder" = "Email address";
+"authentication.forgotUsername.buttons.email.submit" = "CONFIRM EMAIL ADDRESS";
+
+"authentication.emailSent.labels.title" = "Instructions sent to your email";
+"authentication.emailSent.labels.subtitle" = "Check your email for steps to recover your username";
+"authentication.emailSent.buttons.dismiss" = "DONE";
+
+"authentication.login.strings.title" = "Welcome to Westerra";
+"authentication.login.buttons.passcode" = "LOG IN WITH PASSCODE";
+"authentication.login.buttons.biometric.touchID" = "LOG IN WITH TOUCH ID";
+"authentication.login.buttons.biometric.faceID" = "LOG IN WITH FACE ID";
+
+"authentication.register.buttons.login" = "LOG IN";
+"authentication.register.buttons.forgotCredentials" = "FORGOT USERNAME";
+
+"authentication.biometrics.registration.buttons.prompt.faceID" = "ENABLE FACE ID";
+"authentication.biometrics.registration.buttons.prompt.touchID" = "ENABLE TOUCH ID";
+"authentication.biometrics.registration.buttons.cancel" = "Maybe later";
+
+"authentication.passcode.login.buttons.troubleshoot" = "FORGOT PASSCODE?";
+"authentication.passcode.registration.buttons.reset" = "RESET";
+"authentication.setupComplete.buttons.dismiss" = "LET'S GET STARTED!";
+"authentication.setupComplete.labels.subtitle" = "Your device was successfully registered and you can now use the app.";
+
+// MARK:  ACCOUNTS
+"accountsAndTransactions.accounts.labels.title" = "Accounts";
+"accountsAndTransactions.accounts.errors.noAccounts.title" = "No accounts opened yet";
+"accountsAndTransactions.accounts.errors.noAccounts.subtitle" = "Please try again or give us a call at 303-321-4209 to get this sorted out.";
+"accountsAndTransactions.errors.loadingFailure.title" = "Oops, loading failed";
+"accountsAndTransactions.errors.loadingFailure.subtitle" = "Something went wrong.\nPlease try again";
+
+"accountsAndTransactions.accounts.labels.section.title.allAccountsSectionTitle" = "ALL ACCOUNTS";
+"accountsAndTransactions.accounts.labels.section.title.currentAccounts" = "SPENDING ACCOUNTS";
+"accountsAndTransactions.accounts.labels.section.title.savingsAccounts" = "SAVINGS ACCOUNTS";
+"accountsAndTransactions.accounts.labels.section.title.creditCards" = "CREDIT CARDS";
+"accountsAndTransactions.accounts.labels.section.title.loans" = "LOANS";
+"accountsAndTransactions.accounts.labels.section.title.debitCards" = "DEBIT CARDS";
+"accountsAndTransactions.accounts.labels.section.title.generalAccounts" = "GENERAL ACCOUNTS";
+"accountsAndTransactions.accounts.labels.section.title.investmentAccounts" = "INVESTMENT ACCOUNTS";
+"accountsAndTransactions.accounts.labels.section.title.termDeposits" = "TERM DEPOSITS";
+
+"accountsAndTransactions.account.details.labels.title" = "Account details";
+
+// Account Statements
+"accountStatements.title" = "Account statements";
+"accountStatements.edgeCase.button.loadingFailed.retry" = "RETRY";
+"accountStatements.edgeCase.button.invalidResponse.retry" = "RETRY";
+"accountStatements.edgeCase.label.loadingFailedTitle" = "Oops! Something went wrong.";
+"accountStatements.edgeCase.label.loadingFailedSubtitle" = "Statements for joint accounts are currently not available. Please try again or contact us for assistance.";
+"accountStatements.filter.buttons.applyFilters" = "APPLY FILTERS";
+"accountStatements.filter.buttons.cancel" = "CANCEL";
+"accountStatements.filter.buttons.reset" = "RESET";
+
+// Transactions
+"accountsAndTransactions.transactions.errors.title" = "Dang! Failed to load more transactions";
+"accountsAndTransactions.transactions.errors.subtitle" = "We couldn't load more transactions. Please try again or give us a call at 303-321-4209 to get this sorted out.";
+"accountsAndTransactions.transactions.errors.pending.title" = "Dang! Failed to load more transactions";
+"accountsAndTransactions.transactions.errors.pending.subtitle" = "We couldn't load more pending transactions. Please try again or give us a call at 303-321-4209 to get this sorted out.";
+"accountsAndTransactions.transactions.errors.completed.title" = "Dang! Failed to load more transactions";
+"accountsAndTransactions.transactions.errors.completed.subtitle" = "We couldn't load more pending transactions. Please try again or give us a call at 303-321-4209 to get this sorted out.";
+"accountsAndTransactions.transactions.completedTransactionsHeaderTitle" = "POSTED TRANSACTIONS";
+"accountsAndTransactions.transactions.errors.noResults.title" = "No results found";
+"accountsAndTransactions.transactions.errors.noResults.subtitle" = "Please select different criteria.";
+
+// MARK: Payments
+"internal.a2a.success" = "Your transfer has been completed";
+"internal.a2a.failure" = "Your transfer has failed";
+
+"move.money.title" = "Move money";
+"move.money" = "Move Money";
+"transfer.to.member.title" = "Transfer to Westerra member";
+"make.a.transfer.title" = "Make a transfer";
+"make.a.transfer.subtitle" = "Move money between your own accounts.";
+"scheduled.transfers.title" = "Transfer Activity";
+"scheduled.transfers.subtitle" = "List of all scheduled transfers";
+"upcomingPayments.segmentedControl.scheduled.title" = "Upcoming";
+"billpaydashboard.title" = "Pay bills";
+"paybills.title" = "Pay bills";
+"payactivity.title" = "Payment activity";
+"p2p.title" = "External transfers & pay people";
+
+"paymentFlow.p2p.title" = "Send to";
+"paymentFlow.retail.paymentPartyListScreen.bookedBalanceHeader" = "Balance";
+"paymentFlow.scheduledPayment.noPayment.title" = "No scheduled payments";
+"paymentFlow.retail.formScreen.sendAction.title" = "CONTINUE TO REVIEW";
+"paymentFlow.retail.paymentReview.confirmPaymentButton.title" = "CONFIRM AND TRANSFER";
+"paymentFlow.retail.paymentReview.confirmScheduleButton.title" = "CONFIRM AND SCHEDULE";
+"paymentFlow.retail.paymentComplete.doneButton.title" = "DONE";
+
+"bill.pay" = "Bill Pay";
+"p2p.paymentFlow.noContacts.title" = "No contacts yet";
+
+// MARK: MESSAGES
+"messages.composemessage.topic" = "saving, loan, general, creditcard, debitcard, investment, termdeposit";
+
+"messages.errors.notConnected.title" = "No internet connection";
+"messages.errors.notConnected.subtitle" = "It seems you’re not connected to a network";
+"messages.errors.notConnected.actionButton.title" = "Try again";
+
+"messages.errors.loadingFailure.title" = "Oops, loading failed";
+"messages.errors.loadingFailure.subtitle" = "Something went wrong. You may be able to try again";
+"messages.errors.loadingFailure.actionButton.title" = "Try again";
+
+"messages.errors.pullToRefresh.title" = "Something went wrong";
+"messages.errors.pullToRefresh.subtitle" = "We're working on getting this fixed as soon as we can. Try again later.";
+
+// Message List
+"messageList.navigation.title" = "Messages";
+
+"messageList.errors.noInboxMessages.title" = "No messages";
+"messageList.errors.noInboxMessages.subtitle" = "You don't have any messages to review.";
+
+"messageList.errors.noSentMessages.title" = "No sent messages";
+"messageList.errors.noSentMessages.subtitle" = "You haven't sent any messages.";
+
+"messageList.errors.noDraftMessages.title" = "No drafts";
+"messageList.errors.noDraftMessages.subtitle" = "You haven't drafted any messages.";
+
+"messageList.labels.listFooter" = "You’ve reached the end of the list.";
+"messageList.labels.inbox" = "Inbox";
+"messageList.labels.sent" = "Sent";
+"messageList.labels.draft" = "Drafts";
+"messageList.labels.defaultDraftSubject" = "(no subject)";
+"messageList.labels.defaultDraftBody" = "(no message)";
+"messageList.labels.draftMark" = "Draft";
+"messageList.labels.selected" = "selected";
+
+"messageList.alerts.bulkDeleteConversation.labels.title" = "Are you sure you want to permanently delete these conversations?";
+"messageList.alerts.bulkDeleteConversation.buttons.accept" = "Delete";
+"messageList.alerts.bulkDeleteConversation.buttons.cancel" = "Cancel";
+
+"messageList.alerts.bulkDeleteDrafts.labels.title" = "Are you sure you want to discard these drafts?";
+"messageList.alerts.bulkDeleteDrafts.buttons.accept" = "Discard";
+"messageList.alerts.bulkDeleteDrafts.buttons.cancel" = "Cancel";
+
+// Compose
+"composeMessage.navigation.title" = "New message";
+
+"composeMessage.labels.topic" = "Topic";
+"composeMessage.labels.topicPlaceholder" = "Select a topic";
+"composeMessage.labels.subject" = "Subject";
+"composeMessage.labels.attachment" = "Attachment";
+"composeMessage.labels.message" = "Message";
+
+"composeMessage.buttons.topicDone" = "Done";
+"composeMessage.buttons.topicCancel" = "Cancel";
+
+"composeMessage.errors.sendingMessageFailed.title" = "Message couldn't be sent";
+"composeMessage.errors.sendingMessageFailed.subtitle" = "An unknown error occurred. Please try again later.";
+"composeMessage.errors.topicsLoadingFailed" = "Couldn't fetch topics";
+"composeMessage.errors.requiredField" = "Required field";
+"composeMessage.errors.charactersLimitExceededSubject" = "Should be less than %d characters";
+"composeMessage.errors.charactersLimitExceededBody" = "Limit exceeded";
+"composeMessage.errors.uploadFailed" = "Couldn't upload attachment";
+"composeMessage.errors.canNotStoreImageForAttachment" = "Couldn't attach selected image";
+"composeMessage.errors.attachedFileNotAcceptedSize.title" = "Selected file can not be attached";
+"composeMessage.errors.attachedImageNotAcceptedSize.title" = "Selected image can not be attached";
+"composeMessage.errors.attachmentSizeNotAccepted.subtitle" = "The size is larger than %d MB";
+"composeMessage.errors.attachmentsNotUploaded.title" = "Message can not be sent";
+"composeMessage.errors.attachmentsNotUploaded.subtitle" = "The attachment hasn't been uploaded successfully";
+
+"composeMessage.errors.loadingDraftsFailed.title" = "Oops, loading failed";
+"composeMessage.errors.loadingDraftsFailed.subtitle" = "Something went wrong. You may be able to try again";
+"composeMessage.errors.loadingDraftsFailed.actionButton.title" = "Try again";
+
+"composeMessage.alerts.discardMessage.labels.title" = "Are you sure you want to discard this message? It will be permanently erased.";
+"composeMessage.alerts.discardMessage.buttons.accept" = "Discard message";
+"composeMessage.alerts.discardMessage.buttons.cancel" = "Cancel";
+
+"composeMessage.alerts.addAttachment.labels.title" = "Select type of file to attach";
+"composeMessage.alerts.addAttachment.buttons.camera" = "Camera";
+"composeMessage.alerts.addAttachment.buttons.photoLibrary" = "Photo Library";
+"composeMessage.alerts.addAttachment.buttons.files" = "Files";
+"composeMessage.alerts.addAttachment.buttons.cancel" = "Cancel";
+
+// Conversation
+"conversation.navigation.title" = "Conversation details";
+
+"conversation.labels.me" = "Me";
+"conversation.labels.draft" = "Draft";
+"conversation.labels.groupedAttachments" = "attachments";
+
+"conversation.alerts.deleteConversation.labels.title" = "Are you sure you want to permanently delete this conversation?";
+"conversation.alerts.deleteConversation.buttons.accept" = "Delete";
+"conversation.alerts.deleteConversation.buttons.cancel" = "Cancel";
+
+"conversation.alerts.deleteDraft.labels.title" = "Are you sure you want to discard this conversation?";
+"conversation.alerts.deleteDraft.buttons.accept" = "Discard";
+"conversation.alerts.deleteDraft.buttons.cancel" = "Cancel";
+
+"conversation.errors.loadingFailure.title" = "Oops, loading failed";
+"conversation.errors.loadingFailure.subtitle" = "Something went wrong. You may be able to try again";
+"conversation.errors.loadingFailure.actionButton.title" = "Ok";
+
+"conversation.errors.refreshingFailure.title" = "Oops, refreshing data failed";
+
+"conversation.errors.notFound.title" = "No conversation";
+"conversation.errors.notFound.subtitle" = "Sorry, we couldn’t find\nthis conversation. ";
+
+// Attachment
+"attachmentPreview.errors.unsupportedFormat.title" = ".%@";
+"attachmentPreview.errors.unsupportedFormat.subtitle" = "This type of file is not supported. Open with another application.";
+
+// MARK: Notifications
+"notifications.errors.notConnected.title" = "No internet connection";
+"notifications.errors.notConnected.subtitle" = "It seems you’re not connected to a network";
+"notifications.errors.notConnected.actionButton.title" = "Try again";
+
+"notifications.errors.loadingFailure.title" = "Oops, loading failed";
+"notifications.errors.loadingFailure.subtitle" = "Something went wrong. You may be able to try again";
+"notifications.errors.loadingFailure.actionButton.title" = "Try again";
+
+"notifications.errors.pullToRefresh.title" = "Something went wrong";
+"notifications.errors.pullToRefresh.subtitle" = "We're working on getting this fixed as soon as we can. Try again later.";
+
+"notifications.labels.allowNotifications" = "Allow notifications";
+"notifications.labels.channels" = "CHANNELS";
+"notifications.labels.pushNotifications.title" = "Push";
+"notifications.labels.pushNotifications.subtitle" = "Pops up on your phone";
+"notifications.labels.sms.title" = "SMS";
+"notifications.labels.sms.subtitle" = "Sent to your primary phone number";
+"notifications.labels.email.title" = "Email address";
+"notifications.labels.email.subtitle" = "Sent to your primary address";
+"notifications.labels.amount.title" = "Amount";
+"notifications.labels.amount.subtitle" = "Be notified when my balance is lower than";
+
+// Notification List
+"notificationList.navigation.title" = "Notifications";
+
+"notificationList.errors.noNotifications.title" = "No notifications";
+"notificationList.errors.noNotifications.subtitle" = "You don't have any notifications to review";
+"notificationList.errors.markedAllAsRead.title" = "Couldn't mark all as read.";
+
+"notificationList.labels.allNotifications" = "All Notifications";
+"notificationList.labels.listFooter" = "You’ve reached the end of the list.";
+"notificationList.labels.transactions" = "Transactions";
+"notificationList.labels.messages" = "Messages";
+"notificationList.labels.payments" = "Payments";
+"notificationList.labels.contacts" = "Contacts";
+"notificationList.labels.limits" = "Limits";
+"notificationList.labels.savingGoals" = "Saving Goals";
+"notificationList.labels.accountStatement" = "Account Statement";
+
+"notificationList.action.markedAllAsRead" = "Marked all notifications as read.";
+
+// Notification Settings
+"notificationSettings.navigation.title" = "Manage notifications";
+
+"notificationSettings.errors.noAccounts.title" = "You don't have any accounts";
+"notificationSettings.errors.noAccounts.subtitle" = "You need to open a new account, for help please contact you bank";
+
+"notificationSettings.labels.selectAnAccount" = "SELECT AN ACCOUNT";
+
+"notificationSettings.labels.section.title.creditCards" = "Credit Cards";
+"notificationSettings.labels.section.title.currentAccounts" = "Spending Accounts";
+"notificationSettings.labels.section.title.debitCards" = "Debit Cards";
+"notificationSettings.labels.section.title.investmentAccounts" = "Investment Accounts";
+"notificationSettings.labels.section.title.loans" = "Loans";
+"notificationSettings.labels.section.title.savingsAccounts" = "Savings Accounts";
+"notificationSettings.labels.section.title.termDeposits" = "Term Deposits";
+"notificationSettings.labels.section.title.generalAccounts" = "General Accounts";
+
+// Account Notification Settings
+"accountNotificationSettings.navigation.title" = "Notification details";
+
+"accountNotificationSettings.labels.balance.title" = "Balance";
+"accountNotificationSettings.labels.balance.subtitle" = "Be notified when your balance is lower than a selected amount";
+"accountNotificationSettings.labels.debitsAndCredits.title" = "Debits and credits";
+"accountNotificationSettings.labels.debitsAndCredits.subtitle" = "Be notified when an amount is debited or credited from your account";
+"accountNotificationSettings.labels.pushNotification" = "Push";
+"accountNotificationSettings.labels.email" = "Email";
+"accountNotificationSettings.labels.sms" = "SMS";
+"accountNotificationSettings.labels.off" = "Off";
+
+// New Transaction Notification Settings
+"newTransactionNotificationSettings.navigation.title" = "Debits and credits";
+
+"newTransactionNotificationSettings.alerts.turnOffNotifications.labels.title" = "Turn off notifications?";
+"newTransactionNotificationSettings.alerts.turnOffNotifications.labels.subtitle" = "You won’t be notified about your debits and credits.";
+"newTransactionNotificationSettings.alerts.turnOffNotifications.buttons.accept" = "Turn off";
+"newTransactionNotificationSettings.alerts.turnOffNotifications.buttons.cancel" = "Cancel";
+"newTransactionNotificationSettings.alerts.smsMonthlyFeeTitle.labels.title" = "SMS monthly fee will be applied";
+"newTransactionNotificationSettings.alerts.smsMonthlyFeeTitle.labels.subtitle" = "Do you want to continue?";
+"newTransactionNotificationSettings.alerts.smsMonthlyFeeTitle.buttons.accept" = "Yes";
+"newTransactionNotificationSettings.alerts.smsMonthlyFeeTitle.buttons.cancel" = "No";
+"newTransactionNotificationSettings.notificationConfirmationDialogEnabled" = "false";
+
+// Low Balance Notification Settings
+"lowBalanceNotificationSettings.navigation.title" = "Balance";
+
+"lowBalanceNotificationSettings.alerts.turnOffNotifications.labels.title" = "Turn off notifications?";
+"lowBalanceNotificationSettings.alerts.turnOffNotifications.labels.subtitle" = "You won’t be notified about your balance.";
+"lowBalanceNotificationSettings.alerts.turnOffNotifications.buttons.accept" = "Turn off";
+"lowBalanceNotificationSettings.alerts.turnOffNotifications.buttons.cancel" = "Cancel";
+"lowBalanceNotificationSettings.alerts.smsMonthlyFeeTitle.labels.title" = "SMS monthly fee will be applied";
+"lowBalanceNotificationSettings.alerts.smsMonthlyFeeTitle.labels.subtitle" = "Do you want to continue?";
+"lowBalanceNotificationSettings.alerts.smsMonthlyFeeTitle.buttons.accept" = "Yes";
+"lowBalanceNotificationSettings.alerts.smsMonthlyFeeTitle.buttons.cancel" = "No";
+"lowBalanceNotificationSettings.notificationConfirmationDialogEnabled" = "false";
+
+"setLowBalanceAmount.navigation.title" = "Balance amount";
+"setLowBalanceAmount.labels.description" = "Be notified when balance is lower than";
+"setLowBalanceAmount.buttons.saveAmount" = "Save amount";
+
+// MARK: MORE MENU
+"more.menu.manage.section.title" = "MANAGE";
+"more.menu.contact.section.title" = "CONTACT US";
+"more.menu.security.section.title" = "SECURITY";
+
+"more.manageSection.scheduledTransfers.title" = "Scheduled Transfers";
+"more.manageSection.scheduledTransfers.subtitle" = "Edit or cancel upcoming transfers";
+"more.manageSection.creditcard.title" = "Manage cards";
+"more.manageSection.creditcard.subtitle" = "View and manage your cards";
+"more.manageSection.billpay.title" = "Pay bills";
+"more.manageSection.billpay.subtitle" = "View the bill pay dashboard";
+
+"more.contactSection.messages.title" = "Messages";
+"more.contactSection.messages.subtitle" = "Reach out to us at 303-321-4209 with any questions you might have.";
+"more.contactSection.notifications.title" = "Manage notifications";
+"more.contactSection.notifications.subtitle" = "Receive notification for transfers and important messages";
+
+"more.securitySection.ChangePasscode.title" = "Change passcode";
+"more.securitySection.ChangePasscode.subtitle" = "Create a new passcode";
+"more.securitySection.Logout.title" = "Log out";
+
+//MARK: BALANCE NOTIFICATION
+"notifications.markAllRead.title" = "MARK ALL READ";
+"notifications.setLowBalanceAmount.description" = "Receive notifications when your current balance is lower than a set amount";
+"notifications.accountNotificationsSettings.debitsAndCreditsTitle" = "Transactions";
+"notifications.accountNotificationsSettings.debitsAndCreditsSubtitle" = "Receive notifications when a transaction posts to your account";
+"notifications.setLowBalanceAmount.saveButton" = "SAVE AMOUNT";
+"notifications.labels.amount.subtitle" = "Be notified when my current balance is lower than";
+"notifications.labels.sms.subtitle" = "Sent to your mobile phone number";
+"notifications.labels.email.subtitle" = "Sent to your email address";
+
+//MARK: CARDS MANAGEMENT
+"card.management.title" = "Manage cards";
+"card.management.valid.thru" = "Good";
+
+"cardsManagement.cardView.labels.cardTypeCredit" = "Credit";
+"cardsManagement.cardView.labels.cardTypeDebit" = "Debit";
+
+"cardsManagement.details.lockUnlockTitle" = "Lock card";
+"cardsManagement.details.replaceCardTitle" = "Replace card";
+"cardsManagement.details.changePinSubtitle" = "Choose a new PIN";
+"cardsManagement.details.changePINView.labels.title" = "Change PIN";
+"cardsManagement.details.lockDismissibleMessageView.labels.title" = "Need a replacement card?";
+"cardsManagement.details.lockDismissibleMessageView.labels.subtitle" = "Visit a branch or contact our call center.";
+
+"cardsManagement.replaceCardReason.title" = "Replace card";
+"cardsManagement.replaceCardReason.lostTitle" = "Lost card";
+"cardsManagement.replaceCardReason.lostSubtitle" = "Your current card will be canceled immediately";
+"cardsManagement.replaceCardReason.stolenTitle" = "Stolen card";
+"cardsManagement.replaceCardReason.stolenSubtitle" = "Your current card will be canceled immediately";
+"cardsManagement.replaceCardReason.damagedCardTitle" = "Damaged card";
+
+"cardsManagement.replaceCardAddressConfirmation.screenTitleLost" = "Lost card";
+"cardsManagement.replaceCardAddressConfirmation.screenTitleStolen" = "Stolen card";
+"cardsManagement.replaceCardAddressConfirmation.screenTitleDamaged" = "Damaged card";
+"cardsManagement.replaceCardAddressConfirmation.inlineMessageTitleLost" = "Your card will be canceled";
+"cardsManagement.replaceCardAddressConfirmation.inlineMessageSubtitleLost" = "As a security measure your current card will be canceled immediately.";
+"cardsManagement.replaceCardAddressConfirmation.inlineMessageTitleStolen" = "Your card will be canceled";
+"cardsManagement.replaceCardAddressConfirmation.inlineMessageSubtitleStolen" = "As a security measure your current card will be canceled immediately.";
+"cardsManagement.replaceCardAddressConfirmation.inlineMessageTitleDamaged" = "Your card will stay active";
+"cardsManagement.replaceCardAddressConfirmation.orderNewCardButtonTitle" = "ORDER NEW CARD";
+
+//MARK: Transaction Details
+"transactionDetails.type" = "Type";
+"transactionDetails.datePosted" = "Date Posted";
+"transactionDetails.description" = "Description";
+"transactionDetails.statementDescription" = "Statement Description";
+"transactionDetails.notes" = "Notes";
+
+//MARK: Remote Capture
+"remoteCapture.tabItem.title" = "Deposit a Check";
+"remote.deposit.title" = "Deposit a check";
+"remote.deposit.subtitle" = "Deposit a check with your device's camera";
+"remoteDepositCapture.form.navigation.title" = "Deposit a check";
+"remoteDepositCapture.form.submitAction.title" = "VERIFY CHECK";
+"remoteDepositCapture.rejected.confirmAction.title" = "GOT IT";
+"remoteDepositCapture.review.submitAction.title" = "CONFIRM AND DEPOSIT";
+"remoteDepositCapture.review.submitAction.title" = "CONFIRM AND DEPOSIT";
+"remoteDepositCapture.edit.submitAction.title" = "DONE";
+"remoteDepositCapture.unverified.confirmAction.title" = "CONFIRM AS IS";
+"remoteDepositCapture.unverified.editAction.title" = "EDIT CHECK DETAILS";
+
+//MARK: Contacts
+"contact.form.name.label" = "Last Name (Or Business Name)";
+"contact.form.name.placeholder" = "Enter last name (or business name)";
+"contact.detail.name.label" = "Last Name (Or Business Name)";
+"contacts.contactForm.submit" = "SAVE";

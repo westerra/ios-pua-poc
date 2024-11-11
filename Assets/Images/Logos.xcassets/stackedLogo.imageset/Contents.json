@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "WCU_STACKED_LOGO_RGB_FINAL_BLACK6C.svg",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "WCU_STACKED_LOGO_RGB_FINAL_KO.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

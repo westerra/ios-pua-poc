@@ -1,0 +1,256 @@
+# .circleci/config.yml
+version: 2.1
+orbs:
+  gh: circleci/github-cli@2.2.0
+  git-shallow-clone: guitarrapc/git-shallow-clone@2.5.0
+
+jobs:
+  create-pr-from-develop-to-main:
+    docker:
+      - image: 'cimg/base:stable'
+    parameters:
+      token:
+        description: |
+          Pass Github token
+        type: env_var_name
+    steps:
+      - gh/setup
+      # - gh/clone
+      - git-shallow-clone/checkout_advanced:
+          keyscan_github: true
+          clone_options: --depth 5
+      - run:
+          command: |
+            PR_STATUS=$(gh pr view --json state | jq -r .state)
+            if [[ "$PR_STATUS" = "OPEN" ]]; then echo "PR already open" ; else gh pr create --title "PR develop -> main" --body "PR from develop branch to main branch" --base main; fi
+          name: Create Pull Request
+
+  deploy:
+    macos:
+      xcode: 15.3.0
+
+    resource_class: macos.m1.large.gen1
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "91:ec:b8:26:dc:4c:e0:e5:da:b0:39:14:de:61:d6:27"
+
+      - checkout
+
+      - run:
+          name: Artifactory Authentication Setup
+          command: |
+            echo $NETRC | base64 -d > ~/.netrc
+            chmod 600 ~/.netrc
+            mkdir -p $HOME/.cocoapods/repos-art $HOME/.cocoapods/repos
+
+      - run:
+          name: Set Git Permissions
+          command: |
+            mkdir -p ~/.ssh
+            echo $SSH_KNOWN_HOSTS | base64 -d > ~/.ssh/known_hosts
+            echo $SSH_PB_KEY | base64 -d > ~/.ssh/id_rsa.pub
+            echo $SSH_PV_KEY | base64 -d > ~/.ssh/id_rsa
+            echo $SSH_CONFIG | base64 -d > ~/.ssh/config
+            chmod 600 ~/.ssh/id_rsa
+            eval "$(ssh-agent -s)" &
+            ssh-add ~/.ssh/id_rsa
+
+      - run:
+          name: Setup Dependencies
+          command: |
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            brew update && brew upgrade rbenv ruby-build
+            brew install xcbeautify
+            rbenv install 3.3.3
+            rbenv global 3.3.3
+            gem install bundler
+            gem install activesupport
+            gem list | grep -i active
+            bundle config set --local path 'vendor/bundle'
+            bundle install
+            gem install xcodeproj
+            gem install fastlane
+            gem install cocoapods
+            sudo gem install cocoapods-art
+            pod repo-art add backbase-pods3 https://repo.backbase.com/api/pods/ios3
+            pod repo-art add backbase-pods-business https://repo.backbase.com/api/pods/ios-business
+            pod repo-art add backbase-pods-design-system https://repo.backbase.com/api/pods/design-ios
+            pod repo-art add backbase-pods-engagement-channels https://repo.backbase.com/api/pods/ios-engagement-channels
+            pod repo-art add backbase-pods-flow https://repo.backbase.com/api/pods/ios-flow-production
+            pod repo-art add backbase-pods-identity https://repo.backbase.com/api/pods/ios-identity
+            pod repo-art add backbase-pods-mitek-misnap https://repo.backbase.com/api/pods/ios-mitek-misnap
+            pod repo-art add backbase-pods-notifications https://repo.backbase.com/api/pods/ios-mobile-notifications
+            pod repo-art add backbase-pods-retail3 https://repo.backbase.com/api/pods/ios-retail3
+            pod install
+
+      - run:
+          name: Build and Deploy via Fastlane
+          command: |
+            echo $SA_KEY > credentials.json
+            GOOGLE_APPLICATION_CREDENTIALS=credentials.json fastlane --verbose $FASTLANE_LANE
+          no_output_timeout: 20m
+
+      - store_artifacts:
+          path: output
+
+  upload-test-flight:
+    macos:
+      xcode: 15.3.0
+
+    resource_class: macos.m1.large.gen1
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "91:ec:b8:26:dc:4c:e0:e5:da:b0:39:14:de:61:d6:27"
+
+      - checkout
+
+      - run:
+          name: Artifactory Authentication Setup
+          command: |
+            echo $NETRC | base64 -d > ~/.netrc
+            chmod 600 ~/.netrc
+            mkdir -p $HOME/.cocoapods/repos-art $HOME/.cocoapods/repos
+
+      - run:
+          name: Set Git Permissions
+          command: |
+            mkdir -p ~/.ssh
+            echo $SSH_KNOWN_HOSTS | base64 -d > ~/.ssh/known_hosts
+            echo $SSH_PB_KEY | base64 -d > ~/.ssh/id_rsa.pub
+            echo $SSH_PV_KEY | base64 -d > ~/.ssh/id_rsa
+            echo $SSH_CONFIG | base64 -d > ~/.ssh/config
+            chmod 600 ~/.ssh/id_rsa
+            eval "$(ssh-agent -s)" &
+            ssh-add ~/.ssh/id_rsa
+
+      - run:
+          name: Setup Dependencies
+          command: |
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            brew update && brew upgrade rbenv ruby-build
+            brew install xcbeautify
+            rbenv install 3.3.3
+            rbenv global 3.3.3
+            gem install bundler
+            gem install activesupport
+            gem list | grep -i active
+            bundle config set --local path 'vendor/bundle'
+            bundle install
+            gem install xcodeproj
+            gem install fastlane
+            gem install cocoapods
+            sudo gem install cocoapods-art
+            pod repo-art add backbase-pods3 https://repo.backbase.com/api/pods/ios3
+            pod repo-art add backbase-pods-business https://repo.backbase.com/api/pods/ios-business
+            pod repo-art add backbase-pods-design-system https://repo.backbase.com/api/pods/design-ios
+            pod repo-art add backbase-pods-engagement-channels https://repo.backbase.com/api/pods/ios-engagement-channels
+            pod repo-art add backbase-pods-flow https://repo.backbase.com/api/pods/ios-flow-production
+            pod repo-art add backbase-pods-identity https://repo.backbase.com/api/pods/ios-identity
+            pod repo-art add backbase-pods-mitek-misnap https://repo.backbase.com/api/pods/ios-mitek-misnap
+            pod repo-art add backbase-pods-notifications https://repo.backbase.com/api/pods/ios-mobile-notifications
+            pod repo-art add backbase-pods-retail3 https://repo.backbase.com/api/pods/ios-retail3
+            pod install
+
+      - run:
+          name: Build and Deploy via Fastlane
+          command: |
+            echo $SA_KEY > credentials.json
+            echo $FASTLANE_API_KEY > fastlane-credentials.json
+            GOOGLE_APPLICATION_CREDENTIALS=credentials.json fastlane --verbose uploadProdToTestFlightLane
+          no_output_timeout: 20m
+
+      - store_artifacts:
+          path: output
+
+workflows:
+  deployment:
+    jobs:
+      - deploy:
+          name: Deploy-DEV-to-Firebase
+          context: ios-dev
+          filters:
+            branches:
+              only:
+                - develop
+                - dev-ops/ci-cd-dev
+
+      - request-to-deploy-in-UAT:
+          type: approval
+          requires:
+            - Deploy-DEV-to-Firebase
+          filters:
+            branches:
+              only:
+                - develop
+                - dev-ops/ci-cd-dev
+
+      - deploy:
+          name: Deploy-UAT-to-Firebase
+          requires:
+            - request-to-deploy-in-UAT
+          context: ios-uat
+          filters:
+            branches:
+              only:
+                - develop
+                - dev-ops/ci-cd-dev
+
+      - approval-for-creating-pr-from-develop-to-main:
+          requires:
+            - Deploy-UAT-to-Firebase
+          type: approval
+          filters:
+            branches:
+              only:
+                - develop
+
+      - create-pr-from-develop-to-main:
+          requires:
+            - approval-for-creating-pr-from-develop-to-main
+          token: GITHUB_TOKEN
+          filters:
+            branches:
+              only:
+                - develop
+
+      - request-to-deploy-in-PROD:
+          type: approval
+          filters:
+            branches:
+              only:
+                - main
+
+      - deploy:
+          name: Deploy-PROD-to-Firebase
+          context: ios-prod
+          requires:
+            - request-to-deploy-in-PROD
+          filters:
+            branches:
+              only:
+                - main
+
+      - request-to-deploy-to-test-flight:
+          requires:
+            - Deploy-PROD-to-Firebase
+          type: approval
+          filters:
+            branches:
+              only:
+                - main
+
+      - upload-test-flight:
+          name: Deploy-PROD-To-TestFlight
+          context: ios-prod
+          requires:
+            - request-to-deploy-to-test-flight
+          filters:
+            branches:
+              only:
+                - main
+
+# VS Code Extension Version: 1.4.0

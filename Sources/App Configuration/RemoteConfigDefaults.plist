@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>minimum_version_qa</key>
+  <string>{"minimum_version_android": "0.3.32", "minimum_version_ios": "1.2.13", "minimum_version_title": "App Update Required",  "minimum_version_message": "Please update your app to the latest version to continue enjoying the most recent feature and security enhancements." }</string>
+  <key>minimum_version</key>
+  <string>{"minimum_version_android":"0.3.32","minimum_version_ios":"1.2.17","minimum_version_title":"App Update Required","minimum_version_message":"Please update your app to the latest version to continue enjoying the most recent feature and security enhancements."}</string>
+</dict>
+</plist>

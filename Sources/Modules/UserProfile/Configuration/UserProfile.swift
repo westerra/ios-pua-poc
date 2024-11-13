@@ -50,8 +50,9 @@ extension UserProfile {
                 textField.isHidden = true
             }
         }
-
-        userProfile.personalInformation.phoneTypeMapping = [
+        
+        // https://backbase.io/documentation/release-notes/deprecations/historical-deprecations/removed-2023-10
+        userProfile.personalInformation.typeMappingConfiguration.phoneLocalizedTypeMapping = [
             "Mobile": "Mobile",
             "Home": "Home",
             "Work": "Work"
@@ -90,8 +91,8 @@ extension UserProfile {
             .postcode,
             .type
         ]
-
-        userProfile.personalInformation.addressTypeMapping = [
+        // https://backbase.io/documentation/release-notes/deprecations/historical-deprecations/removed-2023-10
+        userProfile.personalInformation.typeMappingConfiguration.addressLocalizedTypeMapping = [
             "RESIDENTIAL": "Home",
             "POBOX": "Mailing"
         ]

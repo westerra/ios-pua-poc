@@ -8,7 +8,7 @@ import Foundation
 import Resolver
 import RetailAccountsAndTransactionsJourney
 import RetailAccountsAndTransactionsJourneyTransactionsUseCase
-import TransactionsClient2
+import TransactionsClient2Gen2
 
 class CustomTransactionsUseCase: TransactionsUseCase {
 

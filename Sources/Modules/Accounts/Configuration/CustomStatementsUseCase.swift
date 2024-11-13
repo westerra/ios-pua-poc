@@ -3,7 +3,7 @@
 //  Copyright © 2023 Westerra CU. All rights reserved.
 //
 
-import AccountStatementsClient2
+import AccountStatementsClient2Gen2
 import Backbase
 import Foundation
 import Resolver
@@ -40,7 +40,7 @@ class CustomStatementsUseCase: AccountStatementsServiceUseCase {
                 }
 
                 do {
-                    let statementList = try JSONDecoder().decode([AccountStatementsClient2.AccountStatement].self, from: dataResponse)
+                    let statementList = try JSONDecoder().decode([AccountStatementsClient2Gen2.AccountStatement].self, from: dataResponse)
                     let statementItems = self.mapStatementItem(fromAccountStatementsClient: statementList)
                     self.statements.append(contentsOf: statementItems)
                     if self.statements.isEmpty {
@@ -82,7 +82,7 @@ class CustomStatementsUseCase: AccountStatementsServiceUseCase {
                 }
 
                 do {
-                    let statementList = try JSONDecoder().decode([AccountStatementsClient2.AccountStatement].self, from: dataResponse)
+                    let statementList = try JSONDecoder().decode([AccountStatementsClient2Gen2.AccountStatement].self, from: dataResponse)
                     let statementItems = self.mapStatementItem(fromAccountStatementsClient: statementList)
                     self.statements.append(contentsOf: statementItems)
                     DispatchQueue.main.async {
@@ -197,7 +197,7 @@ extension CustomStatementsUseCase {
         return urlComponents.url
     }
 
-    func mapStatementItem(fromAccountStatementsClient items: [AccountStatementsClient2.AccountStatement]) -> [RetailAccountStatementsJourney.AccountStatement] {
+    func mapStatementItem(fromAccountStatementsClient items: [AccountStatementsClient2Gen2.AccountStatement]) -> [RetailAccountStatementsJourney.AccountStatement] {
         var accountStatementItems = [RetailAccountStatementsJourney.AccountStatement]()
 
         for item in items {

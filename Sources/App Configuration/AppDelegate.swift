@@ -37,7 +37,7 @@ final class AppDelegate: RetailUSAppDelegate {
             // Use `design` as a customization point for design system.
             sdk.additionalSetup = ApplicationSetup.getSecurityAdditionalSetup()
 
-            design = DesignSystem.configure()
+            DesignSystem.configure(&design)
 
             return { appConfig in
 

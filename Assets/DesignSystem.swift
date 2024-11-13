@@ -11,9 +11,7 @@ extension DesignSystem {
     static var stackViewLabel: UILabel?
 
     /// This is the configuration of the DesignSystem module
-    static func configure() -> DesignSystem {
-
-        var design = DesignSystem()
+    static func configure(_ design: inout DesignSystem) -> DesignSystem {
 
         // Override system fonts
         UIFont.overrideInitialize(&design)

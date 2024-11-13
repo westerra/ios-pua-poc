@@ -1,4 +1,4 @@
-platform :ios, '14.0'
+platform :ios, '15.0'
 
 plugin 'cocoapods-art', sources: %w[
   backbase-pods3
@@ -35,12 +35,14 @@ abstract_target 'Common' do
   pod 'AlertToast',           '1.3.9'
 
   # Documentation: https://community.backbase.com/documentation/Retail-Apps-USA/2023-02-LTS/overview
-  pod 'RetailUSApp',          '5.6.0' # 2023-02-LTS
+  pod 'RetailUSApp',          '7.5.3' # 2023-02-LTS
 
   # Backbase depedencies
-  pod 'RetailPaymentJourney', '3.4.7'
-  pod 'RetailRemoteDepositImageCaptureAction', '3.0.0'
-  pod 'UserProfileJourney', '3.3.4'
+  pod 'RetailPaymentJourney', '5.4.1'
+  pod 'RetailRemoteDepositImageCaptureAction', '4.2.0'
+  pod 'UserProfileJourney', '5.2.0'
+  # lock the version in order to avoid binary breaking change introduced by Jumio in version 4.9.x
+  pod 'IDVerificationJourney', '6.0.2'
 
   pod 'WafMobileSdk', :path => "Development\ Files/Frameworks/WafMobileSdk"
 
@@ -58,7 +60,8 @@ post_install do |installer_representation|
       config.build_settings['DEVELOPMENT_TEAM'] = 'E5LZKA66G2'
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
     end
-    update_vg_parallax_pod()
+    # no longer needed and can be removed
+    # update_vg_parallax_pod()
   end
 
   # Fix swiftinterface files for Xcode

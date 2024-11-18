@@ -7,7 +7,7 @@ import Foundation
 import RetailPaymentJourney
 
 class CustomContactsUseCase: ContactsUseCase {
-
+    
     func retrieveContactsPage(parameters: ContactsPageRequestParameters, completion: @escaping RetrieveContactsCompletion) {
 
         guard var urlComponents = ServerEndpoint.contactList.urlComponents else { return }
@@ -42,4 +42,7 @@ class CustomContactsUseCase: ContactsUseCase {
 
     // Does not need to be handled as we're using the ContactsJourney ContactAddForm to accomplish this functionality
     func saveContact(name: String, email: String?, phoneNumber: String?, completion: @escaping SaveContactCompletion) { }
+    
+    // Added to satisfy the ContactsUseCase protocol and as per above this is not needed
+    func saveContact(parameters: RetailPaymentJourney.ContactRequestParameters, completion: @escaping SaveContactCompletion) { }
 }

@@ -17,15 +17,6 @@ class CustomGetPaymentPartiesServiceUseCase: GetPaymentPartiesServiceUseCase {
             }
         }
     }
-
-    func execute(with parameters: PaymentPartiesRequestParameters, completion: @escaping OnResult<[PaymentParty], ServiceError>) {
-
-        if let url = getURL(for: parameters.role) {
-            PaymentsClient().getPaymentAccountListings(url: url) { paymentPartyList in
-                completion(.success(paymentPartyList))
-            }
-        }
-    }
 }
 
 private extension CustomGetPaymentPartiesServiceUseCase {

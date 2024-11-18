@@ -114,7 +114,7 @@ PODS:
   - CardsClient2Gen2 (1.1.0):
     - Backbase (>= 9.0)
     - ClientCommonGen2 (~> 1.0)
-  - CitizenshipSelectionJourney (1.0.4):
+  - CitizenshipSelectionJourney (1.0.5):
     - FlowCommonUI (~> 5.0-rc)
     - Resolver (~> 1.2.1)
   - ClientCommon (1.1.5):
@@ -500,7 +500,7 @@ PODS:
     - Backbase (>= 11.0.0)
     - NotificationsClient3Gen2 (~> 1)
     - NotificationsJourney (~> 6.2.1)
-  - OTPJourney (6.0.6):
+  - OTPJourney (6.0.7):
     - BackbaseCountryIcons (~> 1.0)
     - FlowCommonUI (~> 5.0-rc)
     - PhoneNumberKit (~> 3.0)
@@ -537,22 +537,22 @@ PODS:
   - PureLayout (3.1.9)
   - PushTokenClient (4.1.0):
     - Backbase (>= 11.0.0)
-  - QuestionnaireJourney (1.0.7):
+  - QuestionnaireJourney (1.0.11):
     - FlowCommonUI (~> 5.1)
     - RxDataSources (~> 4.0)
   - RemoteDepositCaptureClient2 (2.5.0):
     - Backbase (>= 7.8.0)
     - ClientCommon (~> 1.1)
   - Resolver (1.2.1)
-  - RetailAccountsAndTransactionsArrangementViewsUseCase (5.5.3):
+  - RetailAccountsAndTransactionsArrangementViewsUseCase (5.5.4):
     - ArrangementsClient2Gen2 (~> 1.2)
     - RetailAccountsAndTransactionsJourney (~> 5.0)
-  - RetailAccountsAndTransactionsFinancialInstitutionsUseCase (5.5.3):
+  - RetailAccountsAndTransactionsFinancialInstitutionsUseCase (5.5.4):
     - FinancialInstitutionManagerClient1Gen2 (~> 1.0)
     - RetailAccountsAndTransactionsJourney (~> 5.0)
     - RetailJourneyCommon (>= 2.0)
-  - RetailAccountsAndTransactionsJourney (5.5.3):
-    - BackbaseDesignSystem (>= 3.6)
+  - RetailAccountsAndTransactionsJourney (5.5.4):
+    - BackbaseDesignSystem (>= 4.2)
     - BackbaseObservability (>= 1.0)
     - ClientCommonGen2 (~> 1.0)
     - DashboardJourneyCore (>= 2.0.0)
@@ -561,17 +561,17 @@ PODS:
     - RetailJourneyCommon (>= 2.0)
     - RxAnimated (~> 0.7)
     - RxDataSources (~> 4.0)
-  - RetailAccountsAndTransactionsJourneyAccountsUseCase (5.5.3):
+  - RetailAccountsAndTransactionsJourneyAccountsUseCase (5.5.4):
     - ArrangementsClient2Gen2 (~> 1.2)
     - RetailAccountsAndTransactionsJourney (~> 5.0)
     - RetailJourneyCommon (>= 2.0)
-  - RetailAccountsAndTransactionsJourneyExternalAccountAggregationUseCase (5.5.3):
+  - RetailAccountsAndTransactionsJourneyExternalAccountAggregationUseCase (5.5.4):
     - ExternalAccountAggregatorClient1Gen2 (~> 2.0)
     - RetailAccountsAndTransactionsJourney (~> 5.0)
-  - RetailAccountsAndTransactionsJourneyLoansUseCase (5.5.3):
+  - RetailAccountsAndTransactionsJourneyLoansUseCase (5.5.4):
     - LoansClient1Gen2 (~> 1.2)
     - RetailAccountsAndTransactionsJourney (~> 5.0)
-  - RetailAccountsAndTransactionsJourneyTransactionsUseCase (5.5.3):
+  - RetailAccountsAndTransactionsJourneyTransactionsUseCase (5.5.4):
     - RetailAccountsAndTransactionsJourney (~> 5.0)
     - RetailJourneyCommon (>= 2.0)
     - TransactionsClient2Gen2 (~> 1.0)
@@ -1218,7 +1218,7 @@ SPEC CHECKSUMS:
   BusinessWorkspacesJourney: f2fe1964c44126284ff02ce6d32a8210d7723da6
   BusinessWorkspacesJourneyWorkspacesUseCase2: 22c3ba7422cc6e0223e141dccf30630e49dc83ec
   CardsClient2Gen2: 17176157d973bc7f53f2a2cb0651e8f059146c88
-  CitizenshipSelectionJourney: 97354b334cece1d9986a6d90b4f4b08e41c21214
+  CitizenshipSelectionJourney: cf3b98261b1d6c10ede308ef4ff85521a11f54d9
   ClientCommon: f2f0cc0dda4a9c52d8742a20fb16b94b8b6c8391
   ClientCommonGen2: c398932b60b78f84e261e65c1220f730ae69fd04
   CoApplicantWelcomeJourney: af79f8455f649facea709ce3e0cd3fef7e1b9fac
@@ -1299,7 +1299,7 @@ SPEC CHECKSUMS:
   NotificationsJourney: 2698d1045b44dd4dcd1dc4635101e77dacf310cd
   NotificationsJourneyNotificationSettingsUseCase: 6d8d8733d0bf8747896851cfe3500cb42ce1a517
   NotificationsJourneyNotificationsUseCase: c65615e2abc4a3578adf13f281c9c9dae6dbbff3
-  OTPJourney: e05c849a0db47b3e655b73070a164071a967c796
+  OTPJourney: ae775c26f8da1fd23311f005095ccce76f3a1a44
   PaymentOrderA2AClient1Gen2: 5ca55a105c6ddb1032b4d9da14aa125e1bfe125b
   PaymentOrderClient2: 5e3bbb000962b532c48961c2b38c0151c57a696b
   PaymentOrderClient2Gen2V2: 7441585d361fe70a037de0cf940a17431ba6f539
@@ -1312,16 +1312,16 @@ SPEC CHECKSUMS:
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
   PushTokenClient: bd7be6c805300a3599925269d124eec988ed877f
-  QuestionnaireJourney: e8d1f6cb8e251fead372a71b85e42a5dc6449a94
+  QuestionnaireJourney: 1e2f6d6277d5f13fc9625b34ffd0754ee7be08b8
   RemoteDepositCaptureClient2: 8ad2089d61b0801c46b4f05d039eb0b79e144409
   Resolver: 764e380b2ddb26bba48c6e45ab393c968894a156
-  RetailAccountsAndTransactionsArrangementViewsUseCase: 18b629305b11f359f86c450361aaedb53b586731
-  RetailAccountsAndTransactionsFinancialInstitutionsUseCase: 755846511ff4c35dccece69c6bd1fca7b0a45f63
-  RetailAccountsAndTransactionsJourney: 7ecab9a08458ac89343c70be250dc94999b6375c
-  RetailAccountsAndTransactionsJourneyAccountsUseCase: 1e4f1c4f312b081424bf7900b9234d3a0148090f
-  RetailAccountsAndTransactionsJourneyExternalAccountAggregationUseCase: bb6d5acc091187cbe2622cbeda44a8f192ae4965
-  RetailAccountsAndTransactionsJourneyLoansUseCase: 8a8d240ab9c69736d7ccc86ea72413d69ccadf31
-  RetailAccountsAndTransactionsJourneyTransactionsUseCase: 1308e786c8b591b101103541273142aa9460f233
+  RetailAccountsAndTransactionsArrangementViewsUseCase: d7573f8bcf4bddc7dc641dbf5aafac94bfb750e1
+  RetailAccountsAndTransactionsFinancialInstitutionsUseCase: b63d5381c4219dc0380e0eadac0b2f2ff0ca504a
+  RetailAccountsAndTransactionsJourney: 962fda20cd1bf8fc448a2121d4d2671af0a186e4
+  RetailAccountsAndTransactionsJourneyAccountsUseCase: d35368b5ea1f5bd3cf6ff39f0f64a034496ee5ef
+  RetailAccountsAndTransactionsJourneyExternalAccountAggregationUseCase: 910026c49c9b6f2814be97e90d2b0a220c292412
+  RetailAccountsAndTransactionsJourneyLoansUseCase: 83fb07a186064cc0bd63f5c41b9f472043931d34
+  RetailAccountsAndTransactionsJourneyTransactionsUseCase: 36dd04f2d5124656449ee83e5daba90c7b934beb
   RetailAccountStatementsJourney: 0f1368f2b3f8f25968e1f10e204a61a3d8bb790f
   RetailAccountStatementsJourneyAccountStatementsUseCase: daf3bcda178109d00cfa7356104b133ac1dce473
   RetailAppCommon: 252179e44052abf01893b5f9d4a2bcecd4190442
@@ -1393,6 +1393,6 @@ SPEC CHECKSUMS:
   WafMobileSdk: 4fdaaa2c1cb0b78f7db3b51154f86b0f6c2372bc
   WalkthroughJourney: 8a4d5dcf58f959bb1d902eed879a5571bb88f468
 
-PODFILE CHECKSUM: 7069e1a85508a0c63d132e154cba8ebfdc505388
+PODFILE CHECKSUM: 74865b05f2aeb14d0b06b60066804288e59fb701
 
 COCOAPODS: 1.15.2

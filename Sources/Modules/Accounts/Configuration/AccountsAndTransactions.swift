@@ -76,9 +76,8 @@ extension AccountsAndTransactions {
                 navigationController.pushViewController(viewController, animated: true)
             }
         }
-
-        transactions.creditCardsQuickActionsProvider = creditCardQuickActionsProvider
-        transactions.loansQuickActionsProvider = loansQuickActionsProvider
+        //transactions.creditCardsQuickActionsButtonGroupProvider = creditCardQuickActionsButtonProvider
+        //transactions.loansQuickActionsProvider = loansQuickActionsProvider
         accountsAndTransactions.transactionDetails.sectionsProvider = transactionDetailSectionProvider
         accountsAndTransactions.transactionDetails.design.styles.headerPillButton = headerPillButtonStyle
 
@@ -86,6 +85,66 @@ extension AccountsAndTransactions {
         accountsAndTransactions.transactions = transactions
         accountsAndTransactions.accountDetails = accountDetails
         accountsAndTransactions.accounts = accounts
+        
+        // Use the new configuration
+        transactions.creditCardsQuickActionsButtonGroupProvider = { product in
+            return [
+                ButtonGroup.Configuration(title: "Details", icon: UIImage(systemName: "info")?.withTintColor(.white, renderingMode: .alwaysTemplate), accessibilityIdentifier: "Details Button", navigationAction: { navigationController in
+                
+                let accountDetailsViewController = AccountDetails.build(
+                    navigationController: navigationController,
+                    arrangementId: product.identifier
+                )
+
+                navigationController.pushViewController(accountDetailsViewController, animated: true)
+                    
+            }),
+                ButtonGroup.Configuration(title: "Statements", icon: UIImage(systemName: "doc.text")?.withTintColor(.white, renderingMode: .alwaysTemplate), accessibilityIdentifier: "Statements Button", navigationAction: { navigationController in
+                
+                    let rows: [SummaryStackRow] = self.accountStatementSummaryRowsConfiguration(product: Product.creditCard(product))
+                    let params = AccountStatementsEntryParams(accountIdentifier: product.identifier, summaryStackRows: rows)                    
+                    let viewController = RetailAccountStatements.build(navigationController: navigationController, entryParams: params)
+                    navigationController.pushViewController(viewController, animated: true)
+                    
+            })
+          ]
+        }
+        
+        transactions.loansQuickActionsButtonGroupProvider = { product in
+            var loanMortageOption: ButtonGroup.Configuration?
+           
+            if LoanAccountProvider.isMortgageLoan(product.productTypeName) {
+                loanMortageOption = ButtonGroup.Configuration(title: "Make Payment", icon: UIImage(systemName: "dollarsign")?.withTintColor(.white, renderingMode: .alwaysTemplate), accessibilityIdentifier: "Make Payment Button", navigationAction: { navigationController in
+                    
+                    guard let mortgageId = product.identifier else {
+                        return
+                    }
+                    
+                    DmiMortgageViewModel().initiateDmiMortgageSSO(mortgageId: mortgageId, title: "Make Payment", viewToLoad: .makePayment, on: navigationController)
+                })
+            }
+            return [
+                ButtonGroup.Configuration(title: "Details", icon: UIImage(systemName: "info")?.withTintColor(.white, renderingMode: .alwaysTemplate), accessibilityIdentifier: "Details Button", navigationAction: { navigationController in
+                
+                let accountDetailsViewController = AccountDetails.build(
+                    navigationController: navigationController,
+                    arrangementId: product.identifier
+                )
+
+                navigationController.pushViewController(accountDetailsViewController, animated: true)
+                    
+            }),
+                ButtonGroup.Configuration(title: "Statements", icon: UIImage(systemName: "doc.text")?.withTintColor(.white, renderingMode: .alwaysTemplate), accessibilityIdentifier: "Statements Button", navigationAction: { navigationController in
+                
+                    let rows: [SummaryStackRow] = self.accountStatementSummaryRowsConfiguration(product: Product.loan(product))
+                    let params = AccountStatementsEntryParams(accountIdentifier: product.identifier, summaryStackRows: rows)
+                    let viewController = RetailAccountStatements.build(navigationController: navigationController, entryParams: params)
+                    navigationController.pushViewController(viewController, animated: true)
+                    
+            }),
+            loanMortageOption
+            ].compactMap { $0 }
+        }
     }
 }
 
@@ -157,20 +216,21 @@ private extension AccountsAndTransactions {
         { product in
             let account = product.account
             let amount = getBalanceAmount(fromProduct: product)
-            let options = DesignSystem.Formatting.Options(
-                locale: Locale(identifier: "en_US"),
-                formattingStyle: .currency,
-                showsPlusSign: false,
-                enableSignHighlighting: false,
-                minFractionDigits: 2,
-                maxFractionDigits: 2,
-                roundingMode: .down,
-                customCode: nil,
-                customSymbol: nil,
-                abbreviator: nil,
-                accessibility: .init(),
-                usesGroupingSeparator: true
-            )
+            
+            var options = DesignSystem.Formatting.Options()
+            options.locale = Locale(identifier: "en_US")
+            options.formattingStyle = .currency
+            options.showsPlusSign = false
+            options.enableSignHighlighting = false
+            options.minFractionDigits = 2
+            options.maxFractionDigits = 2
+            options.roundingMode = .down
+            options.customCode = nil
+            options.customSymbol = nil
+            options.abbreviator = nil
+            options.accessibility = .init(positiveAmountLabelFormat: nil, negativeAmountLabelFormat: nil)
+            options.usesGroupingSeparator = true
+            
             let rowAccountName = SummaryStackTextRow(primaryTextRow: account.accountName ?? "")
             let rowAccountNumber = SummaryStackTextRow(secondaryTextRow: account.accountNumber ?? "")
             let rowAmount = SummaryStackTextRow(
@@ -187,20 +247,21 @@ private extension AccountsAndTransactions {
     static func accountStatementSummaryRowsConfiguration(product: Product) -> [SummaryStackRow] {
         let account = product.account
         let amount = getBalanceAmount(fromProduct: product)
-        let options = DesignSystem.Formatting.Options(
-            locale: Locale(identifier: "en_US"),
-            formattingStyle: .currency,
-            showsPlusSign: false,
-            enableSignHighlighting: false,
-            minFractionDigits: 2,
-            maxFractionDigits: 2,
-            roundingMode: .down,
-            customCode: nil,
-            customSymbol: nil,
-            abbreviator: nil,
-            accessibility: .init(),
-            usesGroupingSeparator: true
-        )
+        
+        var options = DesignSystem.Formatting.Options()
+        options.locale = Locale(identifier: "en_US")
+        options.formattingStyle = .currency
+        options.showsPlusSign = false
+        options.enableSignHighlighting = false
+        options.minFractionDigits = 2
+        options.maxFractionDigits = 2
+        options.roundingMode = .down
+        options.customCode = nil
+        options.customSymbol = nil
+        options.abbreviator = nil
+        options.accessibility = .init(positiveAmountLabelFormat: nil, negativeAmountLabelFormat: nil)
+        options.usesGroupingSeparator = true
+        
         let rowAccountName = SummaryStackTextRow(primaryTextRow: account.accountName ?? "")
         let rowAccountNumber = SummaryStackTextRow(secondaryTextRow: account.accountNumber ?? "")
         let rowAmount = SummaryStackTextRow(

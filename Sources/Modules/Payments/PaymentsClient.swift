@@ -75,29 +75,32 @@ private extension PaymentsClient {
         let minimumPayment = account.minimumPayment?.toDecimal()
         let outstandingPayment = account.outstandingPayment?.toDecimal()
 
+        // emailAddress and phoneNumber are being set to nil. So we don't need to map them. If needed, then map them using product type of contact
+        // minimumPayment, outstandingPayment and minimumPaymentDueDate are moved under CreditCard when productType is set to .creditCard
+        // Depening on the business requirement we need to create either a generic or credit card product type
+        let creditCardProductType: ProductType = .creditCard(CreditCardAdditions(minimumPaymentDueDate: account.minimumPaymentDueDate, outstandingPayment: outstandingPayment, minimumPayment: minimumPayment))
+        let contactProductType: ProductType = .contact(ContactAdditions(phoneNumber: "testNumber", emailAddress: "testEmail"))
+        let genericProductType: ProductType = .generic
+        
         return PaymentParty(
             identifier: account.id,
             name: account.displayName ?? "Failed to Parse",
             type: type,
             identifications: [.bban: account.BBAN ?? "Unknown Account Number"],
-            emailAddress: nil,
-            phoneNumber: nil,
             currencyCode: account.currency,
             availableBalance: availableBalance,
             bookedBalance: bookedBalance,
             remainingCredit: remainingCredit,
-            minimumPayment: minimumPayment,
-            outstandingPayment: outstandingPayment,
             amountOptions: [
                 AmountOption(fieldType: .outstandingPayment, amount: outstandingPayment),
                 AmountOption(fieldType: .minimumPayment, amount: minimumPayment),
                 AmountOption(fieldType: .statementBalance, amount: availableBalance),
                 AmountOption(fieldType: .bookedBalance, amount: bookedBalance)
             ],
-            minimumPaymentDueDate: account.minimumPaymentDueDate,
             saveContact: nil,
             additions: account.additions,
-            productType: .generic
+            // set this value based on the business logic
+            productType: contactProductType
         )
     }
 }

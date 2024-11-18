@@ -30,19 +30,25 @@ extension Notifications {
         notifications.setLowBalanceAmount.strings.description = LocalizedString("notifications.setLowBalanceAmount.description")
         notifications.setLowBalanceAmount.design.descriptionLabel = setLowBalanceAmountDescriptionLabel
         notifications.setLowBalanceAmount.strings.saveButton = LocalizedString("notifications.setLowBalanceAmount.saveButton")
-
-        notifications.notificationSettingsAPI = .actions
+        
+        // Always use enagements endpoint since v5 of the notificaiton journey
+        // This line can be removed
+        // notifications.notificationSettingsAPI = .actions
+        
         notifications.accountNotificationsSettings.design.accountIconView = accountIconStyle
         notifications.accountNotificationsSettings.strings.balanceSubtitle = LocalizedString("notifications.setLowBalanceAmount.description")
         notifications.accountNotificationsSettings.strings.debitsAndCreditsTitle = LocalizedString("notifications.accountNotificationsSettings.debitsAndCreditsTitle")
         notifications.accountNotificationsSettings.strings.debitsAndCreditsSubtitle = LocalizedString("notifications.accountNotificationsSettings.debitsAndCreditsSubtitle")
+        // https://backbase.io/documentation/release-notes/deprecations/historical-deprecations/removed-2023-10#_notification
+        // Directly override the localizable string with key newTransactionNotificationSettings.navigation.title to update the title
+//        notifications.newTransactionNotificationSettings.strings.navigationTitle = LocalizedString("notifications.accountNotificationsSettings.debitsAndCreditsTitle")
+        
+        // Use the new CustomNotificationConfigProtocol and modify the existing properties
+        notifications.newTransactionNotificationConfiguration.design.allowNotificationsSwitch = enabledTintColor
+        notifications.newTransactionNotificationConfiguration.design.channelSwitch = enabledTintColor
 
-        notifications.newTransactionNotificationSettings.strings.navigationTitle = LocalizedString("notifications.accountNotificationsSettings.debitsAndCreditsTitle")
-
-        notifications.lowBalanceNotificationSettings.design.allowNotificationsSwitch = enabledTintColor
-        notifications.lowBalanceNotificationSettings.design.channelSwitch = enabledTintColor
-        notifications.newTransactionNotificationSettings.design.allowNotificationsSwitch = enabledTintColor
-        notifications.newTransactionNotificationSettings.design.channelSwitch = enabledTintColor
+        notifications.lowBalanceNotificationConfiguration.design.allowNotificationsSwitch = enabledTintColor
+        notifications.lowBalanceNotificationConfiguration.design.channelSwitch = enabledTintColor
 
         notifications.notificationList.design.markAsReadBarItem = markAsReadBarItemButton
         notifications.notificationList.design.notificationTitleLabel = notificationTitleLabel

@@ -9,7 +9,7 @@ import RetailPaymentJourney
 
 class CustomGetPaymentPartiesServiceUseCase: GetPaymentPartiesServiceUseCase {
     
-    public func execute(parameters: PaymentPartiesPageRequestParameters, completion: @escaping RetrievePaymentPatiesPageCompletion) {
+    func execute(parameters: PaymentPartiesPageRequestParameters, completion: @escaping RetrievePaymentPatiesPageCompletion) {
         if let url = getURL(for: parameters.role) {
             PaymentsClient().getPaymentAccountListings(url: url) { paymentPartyList in
                 // There was no pagination in the original implementation. Hence keep it as is by setting nextPageCursor to nil

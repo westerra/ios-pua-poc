@@ -10,11 +10,8 @@ import RetailPaymentJourney
 class CustomCreatePaymentOrderUseCase: CreatePaymentOrderUseCase {
 
     private let dispatchQueue = DispatchQueue.main
-
-    func execute(
-        _ paymentOrder: RetailPaymentJourney.PaymentOrder,
-        completion: @escaping RetailPaymentJourney.OnResult<RetailPaymentJourney.PaymentState, RetailPaymentJourney.ServiceError>
-    ) {
+    
+    func execute(_ paymentOrder: PaymentOrder, completion: @escaping OnResult<PaymentState, ServiceError>) {
         guard let httpBody = try? JSONSerialization.data(withJSONObject: requestBody(for: paymentOrder)),
             let paymentOrdersUrl = ServerEndpoint.paymentOrders.url
         else {
@@ -99,11 +96,23 @@ class CustomCreatePaymentOrderUseCase: CreatePaymentOrderUseCase {
         }
         .resume()
     }
+    
+    func validatePaymentOrder(_ paymentOrder: PaymentOrder, completion: @escaping OnResult<PostValidateResponse, ServiceError>) {
+       // This is left blank as the payment order was not validated before. In order to skip this call we need to update the config for P2P and disable validation using shouldValidatePaymentOrder.
+    }
 }
 
 private extension CustomCreatePaymentOrderUseCase {
 
     func requestBody(for paymentOrder: PaymentOrder) -> [String: Any?] {
+        // extract the value of phone number
+        var phoneNumberValue: String? {
+            if case .contact(let contactAdditions) = paymentOrder.toAccount.productType {
+                return contactAdditions.phoneNumber
+            }
+            return nil
+        }
+        
         return [
             "instructionPriority": "NORM",
             "paymentType": paymentOrder.paymentType,
@@ -127,7 +136,7 @@ private extension CustomCreatePaymentOrderUseCase {
                 ],
                 "counterpartyAccount": [
                     "identification": [
-                        "identification": paymentOrder.toAccount.phoneNumber ?? "",
+                        "identification": phoneNumberValue,
                         "schemeName": "BBAN"
                     ],
                     "selectedContact": [

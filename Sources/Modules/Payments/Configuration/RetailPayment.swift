@@ -102,7 +102,8 @@ private extension RetailPayment {
         ]
 
         var paymentSteps = PaymentSteps.Configuration()
-        paymentSteps.steps = [.form(formStep)]
+        // add the review step explicitly
+        paymentSteps.steps = [.form(formStep), .review]
 
         paymentSteps.router.didTapReviewButton = onTapReviewButton
 
@@ -257,6 +258,9 @@ private extension RetailPayment {
     static var p2pPaymentSteps: PaymentSteps.Configuration {
 
         var formStep = FormStep.Configuration()
+        formStep.shouldValidatePaymentOrder = { _ in
+            return false
+        }
         formStep.strings.title = LocalizedString("Payment details")
 
         var scheduleField = ScheduleFieldConfiguration()
@@ -287,11 +291,11 @@ private extension RetailPayment {
         paymentSteps.steps = [
             .toContactSelection,
             .fromPartySelection(.init()),
-            .form(formStep)
+            .form(formStep),
+            .review
         ]
 
         paymentSteps.router.didTapReviewButton = onTapReviewButton
-
         return paymentSteps
     }
 }

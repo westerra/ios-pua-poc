@@ -64,6 +64,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString("more.contactSection.notifications.title"),
             icon: .manageNotifications,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let manageNotificationsVC = NotificationSettings.build(navigationController: navigationController)
                 navigationController.pushViewController(manageNotificationsVC, animated: true)
@@ -76,6 +77,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString("more.manageSection.creditcard.title"),
             icon: .card,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let manageCardsVC = CardsDetails.build(navigationController: navigationController)
                 navigationController.pushViewController(manageCardsVC, animated: true)
@@ -88,6 +90,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString("Manage contacts"),
             icon: .contacts,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let manageContactsViewController = ContactList.build(navigationController: navigationController)
                 navigationController.pushViewController(manageContactsViewController, animated: true)
@@ -100,6 +103,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString("My profile"),
             icon: .profile,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let userProfileViewController = UserProfile.build(navigationController: navigationController)
                 navigationController.pushViewController(userProfileViewController, animated: true)
@@ -112,6 +116,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString("Card rewards"),
             icon: .cardRewards,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: SSOView.view(for: AmplifiEndpoint(), with: RetailJourneyCommon.LocalizedString("Card rewards").value)
         )
     }
@@ -121,6 +126,7 @@ private extension More {
             title: "Explore Westerra Products",
             icon: .wcuLogo,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 DispatchQueue.main.async {
                     let coordinatorViewModel = BehindThePinCoordinatorViewModel(hostViewController: navigationController.topViewController)
@@ -156,6 +162,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString("more.contactSection.messages.title"),
             icon: .messages,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let messagesVC = MessageList.build(navigationController: navigationController)
                 navigationController.pushViewController(messagesVC, animated: true)
@@ -168,6 +175,7 @@ private extension More {
             title: "Dispute a transaction",
             icon: .backbaseIconGavel,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 guard let cardDisputeFormUrl = URL(string: "https://www.westerracu.com/resources/forms?q=card-dispute-forms") else {
                     return
@@ -187,6 +195,7 @@ private extension More {
             title: "Schedule an appointment",
             icon: .backbaseIconSchedule,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { _ in
                 let scheduleAppointmentLink = "https://www.timetrade.com/app/westerracu/workflows/westerra002/schedule?resourceId=any"
                 guard let scheduleAppointmentUrl = URL(string: scheduleAppointmentLink) else { return }
@@ -217,6 +226,7 @@ private extension More {
             title: RetailJourneyCommon.LocalizedString(key: "more.securitySection.ChangePasscode.title"),
             icon: .changePasscode,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { _ in
                 let useCase: AuthenticationUseCase = Resolver.resolve()
                 useCase.changePasscode { _ in }
@@ -229,6 +239,7 @@ private extension More {
             title: "Change password",
             icon: .changePassword,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { parentViewController in
                 let navigationController = UINavigationController()
                 let changePassword = ChangePassword.build(navigationController: navigationController)
@@ -243,6 +254,7 @@ private extension More {
             title: "Delete account",
             icon: .trash,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { _ in
                 let phoneNumber = "303-321-4209"
                 let message = "\n\(phoneNumber)\n\nPlease contact a representative to assist with account deletion."
@@ -271,6 +283,7 @@ private extension More {
             subtitle: nil,
             icon: .logout,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { _ in
                 let useCase: AuthenticationUseCase = Resolver.resolve()
                 let alert = UIAlertController(title: "Are you sure you want to logout?", message: nil, preferredStyle: .alert)

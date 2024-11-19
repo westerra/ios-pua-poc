@@ -51,6 +51,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("make.a.transfer.title"),
             icon: .makeATransfer,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
 
                 let makeATransferViewController = RetailPayment.build(
@@ -68,6 +69,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("transfer.to.member.title"),
             icon: .makeATransfer,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let transferToContactViewController = RetailPayment.build(
                     navigationController: navigationController,
@@ -84,6 +86,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("scheduled.transfers.title"),
             icon: .scheduledTransfers,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
                 let scheduledPaymentsVC = UpcomingPayments.build(navigationController: navigationController)
                 navigationController.pushViewController(scheduledPaymentsVC, animated: true)
@@ -96,6 +99,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("billpaydashboard.title"),
             icon: .payBills,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: SSOView.view(for: PayverisEndpoint.showDashboard, with: LocalizedString("billpaydashboard.title").value)
         )
     }
@@ -105,6 +109,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("paybills.title"),
             icon: .payBills,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: SSOView.view(for: PayverisEndpoint.oneTimePayment, with: LocalizedString("paybills.title").value)
         )
     }
@@ -114,6 +119,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("payactivity.title"),
             icon: .paymentActivity,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: SSOView.view(for: PayverisEndpoint.viewPaymentHistory, with: LocalizedString("payactivity.title").value)
         )
     }
@@ -123,6 +129,7 @@ private extension MoveMoneyTab {
             title: LocalizedString("p2p.title"),
             icon: .p2p,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: SSOView.view(for: PayverisEndpoint.sendMoney, with: LocalizedString("p2p.title").value)
         )
     }

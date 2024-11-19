@@ -46,6 +46,7 @@ private extension RemoteDepositTab {
             subtitle: LocalizedString("remote.deposit.subtitle"),
             icon: UIImage.camera,
             iconBackgroundColor: .clear,
+            iconTintColor: .clear,
             action: { navigationController in
 
                 DispatchQueue.main.async {

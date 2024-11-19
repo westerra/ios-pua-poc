@@ -11,7 +11,7 @@ extension RetailUSAppFeatureFlags {
     static func configure(_ featureFlags: inout RetailUSAppFeatureFlags) {
 
         // FEATURE FLAGS
-        featureFlags.showChangePasswordMenuItem = true
-        featureFlags.useSelfEnrollmentJourney = true
+        // featureFlags.showChangePasswordMenuItem = true
+        // featureFlags.useSelfEnrollmentJourney = true
     }
 }

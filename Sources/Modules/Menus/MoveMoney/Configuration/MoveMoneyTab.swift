@@ -88,7 +88,7 @@ private extension MoveMoneyTab {
             iconBackgroundColor: .clear,
             iconTintColor: .clear,
             action: { navigationController in
-                let scheduledPaymentsVC = UpcomingPayments.build(navigationController: navigationController)
+                let scheduledPaymentsVC = UpcomingPayments.build(navigationController: navigationController, buildArguments: UpcomingPaymentsBuildArguments())
                 navigationController.pushViewController(scheduledPaymentsVC, animated: true)
             }
         )

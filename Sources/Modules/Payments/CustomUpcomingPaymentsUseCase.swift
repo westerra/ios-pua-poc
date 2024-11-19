@@ -324,12 +324,14 @@ extension CustomUpcomingPaymentsUseCase {
                 counterpartyAccount: RetailUpcomingPaymentsJourney.CounterpartyAccount(
                     name: item.transferTransactionInformation?.counterparty.name ?? "",
                     identifier: item.transferTransactionInformation?.counterpartyAccount.arrangementId,
-                    accountNumber: item.transferTransactionInformation?.counterpartyAccount.identification.identification
+                    accountNumber: item.transferTransactionInformation?.counterpartyAccount.identification.identification,
+                    schemeName: nil
                 ),
                 originatorAccount: RetailUpcomingPaymentsJourney.OriginatorAccount(
                     name: item.originator?.name ?? "",
                     identifier: item.originatorAccount?.arrangementId,
-                    accountNumber: item.originatorAccount?.identification.identification
+                    accountNumber: item.originatorAccount?.identification.identification,
+                    schemeName: nil
                 ),
                 schedule: paymentSchedule,
                 requestedExecutionDate: item.requestedExecutionDate,

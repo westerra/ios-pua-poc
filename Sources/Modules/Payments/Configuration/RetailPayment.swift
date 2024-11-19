@@ -24,7 +24,7 @@ extension RetailPayment {
 
         if isP2P {
             payments = payments.p2pTransfer()
-            payments.transferType = .custom("INTRABANK_TRANSFER")
+            payments.transferType = .customType(type: "INTRABANK_TRANSFER", businessFunction: "A2A Transfer")
             payments.paymentSteps = p2pPaymentSteps
             payments.contactList.strings.noResultsTitle = LocalizedString("p2p.paymentFlow.noContacts.title")
             payments.contactList.router.onAddContactTapped = onAddContactTapped

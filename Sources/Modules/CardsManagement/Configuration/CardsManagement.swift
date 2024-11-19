@@ -97,7 +97,8 @@ private extension CardsManagement {
             identifier: cardItem.identifier,
             front: cardFront,
             back: cardBack,
-            style: getPaymentCard(from: cardItem)
+            style: getPaymentCard(from: cardItem),
+            showDisabledCardInGrayColor: true
         )
     }
 
